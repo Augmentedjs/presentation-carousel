@@ -1,0 +1,58 @@
+{
+  "name": "presentation-carousel",
+  "version": "2.0.0",
+  "description": "The Augmented.js Next - Presentation Carousel Module.",
+  "main": "dist/presentation-carousel.js",
+  "scripts": {
+    "dev": "webpack --mode development --progress",
+    "build": "webpack --mode production --progress",
+    "test": "mocha --require @babel/register --require test/helper.js -c test/*Spec.js",
+    "docs": "rm -rf jsdoc && jsdoc ./src -r -d ./jsdoc/ -R ./README.md -t ./node_modules/foodoc/template -c ./jsdoc.conf.json -P ./package.json",
+    "readme": "./node_modules/documentation/bin/documentation.js readme ./src/index.js -f md --section=API",
+    "clean": "rm -rf node_modules",
+    "reinstall": "npm run clean && npm install",
+    "rebuild": "npm run clean && npm install && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Augmentedjs/presentation-carousel.git"
+  },
+  "keywords": [
+    "augmentedjs",
+    "presentation"
+  ],
+  "author": "Bob Warren <jedi.master@augmentedjs.com> (http://www.augmentedjs.com)",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/polyfill": "^7.4.4",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/register": "^7.5.5",
+    "acorn": "^6.2.1",
+    "acorn-dynamic-import": "^4.0.0",
+    "babel-loader": "^8.0.6",
+    "chai": "^4.2.0",
+    "clean-webpack-plugin": "^2.0.2",
+    "css-loader": "^2.1.1",
+    "documentation": "^9.3.1",
+    "eslint": "^5.16.0",
+    "foodoc": "0.0.9",
+    "jsdoc": "^3.6.3",
+    "jsdom": "^14.1.0",
+    "mocha": "^6.2.0",
+    "mocha-jsdom": "^2.0.0",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.38.0",
+    "webpack-cli": "^3.3.6",
+    "babel-preset-env": "^1.7.0"
+  },
+  "dependencies": {
+    "presentation-decorator": "^2.6.7"
+  },
+  "bugs": {
+    "url": "https://github.com/Augmentedjs/presentation-carousel/issues"
+  },
+  "homepage": "http://www.augmentedjs.com"
+}
