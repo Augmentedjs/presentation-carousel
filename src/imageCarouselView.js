@@ -2,7 +2,11 @@ import { DirectiveView } from "presentation-decorator";
 import css from "./styles/carousel.scss";
 
 /**
- * Image Carousel View - Simple scrolling image carousel
+ * Image Carousel View - Simple scrolling image carousel<br/>
+ * Pass an array of objects as an "images" option.  See example.<br/>
+ * Note that the first image will determine the size of each "block" the carousel with scroll to.
+ * @example
+ * const ic = new ImageCarouselView({ "images": [ { "src": "uri", "value": "xyz", "caption": "This is a cool image" }, ... ] });
  * @extends DirectiveView
  */
 class ImageCarouselView extends DirectiveView {
@@ -38,7 +42,20 @@ class ImageCarouselView extends DirectiveView {
     }
   };
 
+  /**
+   * Is called when the carousel is changed.
+   */
+  changed(value) {
+    return true;
+  };
+
+  /**
+   * @property value
+   * The value of the carousel.  Also calls user overridable callback "changed"
+   */
+
   set value(value) {
+    this.changed(value);
     return this.model.set(this.name, value);
   };
 
@@ -46,7 +63,23 @@ class ImageCarouselView extends DirectiveView {
     return this.model.get(this.name);
   };
 
-  _changePosition(x) {
+  /*
+   * The length of the carousel
+   * @property length
+   */
+  get length() {
+    return this._images.length;
+  };
+
+  /**
+   * @property position
+   * The position of the carousel.
+   */
+   get position() {
+     return this._location;
+   };
+
+  _changePosition() {
     if (this._carousel && this._firstimg) {
       const size = this._firstimg.offsetWidth;
       const trans = (this._location * size) / 16;
@@ -60,8 +93,13 @@ class ImageCarouselView extends DirectiveView {
     }
   };
 
+  /**
+   * moves the carousel to the left
+   */
   left(e) {
-    e.preventDefault();
+    if (e) {
+      e.preventDefault();
+    }
     //console.debug("left", this._location, this._images.length);
     if (this._location !== 0) {
       // const carousel = document.querySelector(`${this.el} > div.carousel > div`);
@@ -74,9 +112,15 @@ class ImageCarouselView extends DirectiveView {
     return false;
   };
 
+  /**
+   * moves the carousel to the right
+   */
   right(e) {
-    e.preventDefault();
+    if (e) {
+      e.preventDefault();
+    }
     //console.debug("right", this._location, this._images.length);
+    //console.debug("_carousel", this._carousel, "_firstimg", this._firstimg);
     if (this._location !== this._images.length - 1) {
       // const carousel = document.querySelector(`${this.el} > div.carousel > div`);
       // const img = document.querySelector(`${this.el} > div.carousel > div > figure`);

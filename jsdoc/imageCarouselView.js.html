@@ -1,0 +1,282 @@
+<!-- start:source.tmpl.hbs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+		<title>imageCarouselView.js</title>
+		<link rel="icon" type="image/png" href="favicon.png"/>
+		<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
+		<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+		<link type="text/css" rel="stylesheet" href="css/prism.min.css">
+		<link type="text/css" rel="stylesheet" href="css/template.min.css">
+			<style>
+				.page-header,
+				pre.code-toolbar > .toolbar:hover {
+					background-color: #607D8B;
+				}
+				.callout-primary,
+				.toc .nav > li > a:hover,
+				.toc .nav > li > a:focus,
+				.toc .nav > li.active > a,
+				.toc .nav > li.active > a:hover,
+				.toc .nav > li.active > a:focus,
+				pre.code-toolbar > .toolbar:hover {
+					border-left-color: #607D8B;
+				}
+				pre.code-toolbar > .toolbar:hover {
+					border-bottom-color: #607D8B;
+				}
+				.callout-primary h5,
+				.symbol-title.collapsible-symbol .toggle-icon,
+				.breadcrumb li a,
+				.toc .nav > li > a:hover,
+				.toc .nav > li > a:focus,
+				.toc .nav > li.active > a,
+				.toc .nav > li.active > a:hover,
+				.toc .nav > li.active > a:focus {
+					color: #607D8B;
+				}
+			</style>
+		<script type="text/javascript">
+			window.TEMPLATE_OPTIONS = {"includeDate":true,"dateFormat":"ddd MMM Do YYYY","systemName":"Augmented.js Next Presentation","systemSummary":"Augmented.js Next Presentation - Simply Development.","systemLogo":"img/jensen-silo-circle-small.png","systemColor":"#607D8B","navMembers":[{"kind":"class","title":"Classes","summary":"All documented classes."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"global","title":"Globals","summary":"All documented globals."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"module","title":"Modules","summary":"All documented modules."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"<a href='http://www.augmentedjs.com'>Augmented.js Homepage</a>","copyright":"","linenums":true,"collapseSymbols":false,"inverseNav":true,"inlineNav":false,"outputSourceFiles":true,"sourceRootPath":null,"disablePackagePath":true,"outputSourcePath":true,"showTableOfContents":true,"showAccessFilter":true,"analytics":null,"methodHeadingReturns":false,"sort":"linenum, longname, version, since","search":true,"favicon":"favicon.png","stylesheets":[],"scripts":[],"monospaceLinks":false,"cleverLinks":false,"logoFile":"public/images/jensen-silo-circle-small.png","navType":"vertical","protocol":"html://"};
+			window.DOCLET_TOC_ENABLED = false;
+			window.DOCLET_AFILTER_ENABLED = false;
+		</script>
+</head>
+<body>
+	<!-- start:navbar.hbs -->
+	<header class="navbar navbar-default navbar-fixed-top navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand branding-logo" href="index.html" style="background-image: url(img/jensen-silo-circle-small.png);">
+					Augmented.js Next Presentation
+				</a>
+				<!-- displayed on small devices -->
+				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="navbar-collapse collapse" id="topNavigation">
+				<ul class="nav navbar-nav">
+								<li class="dropdown">
+									<a href="list_class.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="ImageCarouselView.html">ImageCarouselView</a></li>
+									</ul>
+								</li>
+				</ul>
+					<!-- start:lunr-search-navbar.hbs -->
+					<form class="navbar-form navbar-right" role="search">
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="Search" id="lunr-search-input">
+							<div class="input-group-btn">
+								<button class="btn btn-default" id="lunr-search-submit">
+									<i class="glyphicon glyphicon-search"></i>
+								</button>
+							</div>
+						</div>
+					</form>
+					<!-- start:lunr-search-navbar.hbs -->		</div>
+		</div>
+	</header>
+	<!-- end:navbar.hbs -->		<div class="page-header">
+			<div class="container">
+				<span class="kind">source</span>
+				<h1><span class="name">imageCarouselView.js</span></h1>
+			</div>
+		</div>
+	<div class="container content">
+		<div class="row">
+			<div class="col-md-12 main-content">
+		<section class="source-section">
+			<article></article>
+			<pre class="prettyprint source language-javascript line-numbers"><code class="language-javascript">import { DirectiveView } from "presentation-decorator";
+import css from "./styles/carousel.scss";
+
+/**
+ * Image Carousel View - Simple scrolling image carousel&lt;br/>
+ * Pass an array of objects as an "images" option.  See example.&lt;br/>
+ * Note that the first image will determine the size of each "block" the carousel with scroll to.
+ * @example
+ * const ic = new ImageCarouselView({ "images": [ { "src": "uri", "value": "xyz", "caption": "This is a cool image" }, ... ] });
+ * @extends DirectiveView
+ */
+class ImageCarouselView extends DirectiveView {
+  constructor(options) {
+    super(options);
+    if (options &amp;&amp; options.images) {
+      //console.debug(options.images);
+      this._location = 0;
+
+      this.template = /*html*/`
+        &lt;div class="carousel">
+          &lt;button data-${this.name}="left" data-click="left" class="left">
+            &lt;i class="material-icons">navigate_before&lt;/i>
+          &lt;/button>
+          &lt;div>
+            ${ options.images.map( (image) => {
+                return `&lt;figure>&lt;img src="${image.src}" alt="${image.value}" title="${image.caption}" />&lt;/figure>`;
+              })
+              .join("")
+            }
+          &lt;/div>
+          &lt;button data-${this.name}="right" data-click="right" class="right">
+            &lt;i class="material-icons">navigate_next&lt;/i>
+          &lt;/button>
+        &lt;/div>
+      `;
+      this._images = options.images;
+      this.value = this._images[this._location].value;
+    } else {
+      this.template = /*html*/`&lt;div class="carousel">&lt;p>Empty&lt;/p>&lt;/div>`;
+      this._images = [];
+      this.value = null;
+    }
+  };
+
+  /**
+   * Is called when the carousel is changed.
+   */
+  changed(value) {
+    return true;
+  };
+
+  /**
+   * @property value
+   * The value of the carousel.  Also calls user overridable callback "changed"
+   */
+
+  set value(value) {
+    this.changed(value);
+    return this.model.set(this.name, value);
+  };
+
+  get value() {
+    return this.model.get(this.name);
+  };
+
+  /*
+   * The length of the carousel
+   * @property length
+   */
+  get length() {
+    return this._images.length;
+  };
+
+  /**
+   * @property position
+   * The position of the carousel.
+   */
+   get position() {
+     return this._location;
+   };
+
+  _changePosition() {
+    if (this._carousel &amp;&amp; this._firstimg) {
+      const size = this._firstimg.offsetWidth;
+      const trans = (this._location * size) / 16;
+      //console.debug(size, trans);
+      //console.debug(this._carousel);
+
+      this._carousel.style.transform = `translateX(-${trans}rem)`;
+      this.value = this._images[this._location].value;
+
+      //console.debug("value", this._value);
+    }
+  };
+
+  /**
+   * moves the carousel to the left
+   */
+  left(e) {
+    if (e) {
+      e.preventDefault();
+    }
+    //console.debug("left", this._location, this._images.length);
+    if (this._location !== 0) {
+      // const carousel = document.querySelector(`${this.el} > div.carousel > div`);
+      // const img = document.querySelector(`${this.el} > div.carousel > div > figure`);
+      if (this._carousel &amp;&amp; this._firstimg) {
+        this._location--;
+        this._changePosition();
+      }
+    }
+    return false;
+  };
+
+  /**
+   * moves the carousel to the right
+   */
+  right(e) {
+    if (e) {
+      e.preventDefault();
+    }
+    //console.debug("right", this._location, this._images.length);
+    //console.debug("_carousel", this._carousel, "_firstimg", this._firstimg);
+    if (this._location !== this._images.length - 1) {
+      // const carousel = document.querySelector(`${this.el} > div.carousel > div`);
+      // const img = document.querySelector(`${this.el} > div.carousel > div > figure`);
+      if (this._carousel &amp;&amp; this._firstimg) {
+        this._location++;
+        this._changePosition();
+      }
+    }
+    return false;
+  };
+
+  async render() {
+    await super.render();
+    this._carousel = await document.querySelector(`${this.el} > div.carousel > div`);
+    this._firstimg = await document.querySelector(`${this.el} > div.carousel > div > figure`);
+    this._carousel.style.width = `${this._images.length}00%`;
+    this.delegateEvents();
+    return this;
+  };
+
+  async remove() {
+    return await super.remove();
+  };
+};
+
+export default ImageCarouselView;
+</code></pre>
+		</section>
+			</div>
+		</div>
+	</div>
+	<footer>
+				<div class="footer-option"><a href='http://www.augmentedjs.com'>Augmented.js Homepage</a></div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Fri Aug 2nd 2019 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+	</footer>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/clipboard.min.js"></script>
+	<script src="js/prism.min.js"></script>
+	<script src="js/template.min.js"></script>
+		<!-- start:lunr-search-modal.hbs -->
+		<div class="modal fade" id="lunr-search-modal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Search results</h4>
+					</div>
+					<div class="modal-body" id="lunr-search-body">
+					</div>
+					<div class="modal-footer" id="lunr-search-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div>
+		<!-- end:lunr-search-modal.hbs -->		<script src="js/lunr.min.js"></script>
+	
+</body>
+</html>
+<!-- end:source.tmpl.hbs -->

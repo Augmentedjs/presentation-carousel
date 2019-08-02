@@ -1,6 +1,6 @@
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
-const dom = (new JSDOM('<!doctype html><html><body></body></html>')).window;
+const dom = (new JSDOM('<!doctype html><html><body><div id="carousel"></div></body></html>')).window;
 
 global.document = dom.document;
 global.window = dom.window;
