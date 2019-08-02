@@ -34,11 +34,12 @@ class ImageCarouselView extends DirectiveView {
         </div>
       `;
       this._images = options.images;
-      this.value = this._images[this._location].value;
+      this.model.set(this.name, this._images[this._location].value);
+      // this._value = this._images[this._location].value;
     } else {
       this.template = /*html*/`<div class="carousel"><p>Empty</p></div>`;
       this._images = [];
-      this.value = null;
+      
     }
   };
 
@@ -138,6 +139,7 @@ class ImageCarouselView extends DirectiveView {
     this._firstimg = await document.querySelector(`${this.el} > div.carousel > div > figure`);
     this._carousel.style.width = `${this._images.length}00%`;
     this.delegateEvents();
+    this.value = this.value;
     return this;
   };
 
