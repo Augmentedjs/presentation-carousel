@@ -14,7 +14,7 @@ class ImageCarouselView extends DirectiveView {
     super(options);
     if (options && options.images) {
       //console.debug(options.images);
-      this._location = 0;
+      this._location = (options.position) ? options.position : 0;
 
       this.template = /*html*/`
         <div class="carousel">
@@ -39,7 +39,6 @@ class ImageCarouselView extends DirectiveView {
     } else {
       this.template = /*html*/`<div class="carousel"><p>Empty</p></div>`;
       this._images = [];
-      
     }
   };
 
@@ -76,9 +75,18 @@ class ImageCarouselView extends DirectiveView {
    * @property position
    * The position of the carousel.
    */
-   get position() {
-     return this._location;
-   };
+  get position() {
+   return this._location;
+  };
+
+  /**
+   * @property position
+   * The position of the carousel.
+   */
+  set position(p) {
+    this._location = p;
+    this._changePosition();
+  };
 
   _changePosition() {
     if (this._carousel && this._firstimg) {
@@ -140,6 +148,7 @@ class ImageCarouselView extends DirectiveView {
     this._carousel.style.width = `${this._images.length}00%`;
     this.delegateEvents();
     this.value = this.value;
+    this._changePosition();
     return this;
   };
 

@@ -16,10 +16,12 @@ Augmented.js Next Presentation - Carousel Component
     -   [value](#value)
         -   [Parameters](#parameters-2)
     -   [position](#position)
-    -   [left](#left)
+    -   [position](#position-1)
         -   [Parameters](#parameters-3)
-    -   [right](#right)
+    -   [left](#left)
         -   [Parameters](#parameters-4)
+    -   [right](#right)
+        -   [Parameters](#parameters-5)
 
 ## ImageCarouselView
 
@@ -54,6 +56,12 @@ Is called when the carousel is changed.
 -   `value`  
 
 ### position
+
+### position
+
+#### Parameters
+
+-   `p`  
 
 ### left
 
