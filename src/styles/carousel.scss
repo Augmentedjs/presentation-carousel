@@ -49,4 +49,14 @@
     vertical-align: top;
     margin: 0;
   }
+
+  p {
+    padding: 0.25rem;
+    margin: 0;
+    font-size: 0.75rem;
+    color: var(--light-text);
+    background-color: rgba(0,0,0,0.2);
+    z-index: 1;
+    overflow: hidden;
+  }
 }

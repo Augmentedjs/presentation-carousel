@@ -3,17 +3,27 @@ import css from "./styles/carousel.scss";
 
 /**
  * Image Carousel View - Simple scrolling image carousel<br/>
- * Pass an array of objects as an "images" option.  See example.<br/>
- * Note that the first image will determine the size of each "block" the carousel with scroll to.
+ * Pass an array of objects as an "images" option.<br/>
+ * Supports the following options:<br/>
+ * <ul>
+ * <li>showCaption - Shows the caption</li>
+ * <li>postion - starting position</li>
+ * <li>images - image array with the following format: <code>[{ src: "", value: "", caption: "" }]</code></li>
+ * </ul>
+ * <em>* Note that the first image will determine the size of each "block" size the carousel will scroll with.</em>
  * @example
  * const ic = new ImageCarouselView({ "images": [ { "src": "uri", "value": "xyz", "caption": "This is a cool image" }, ... ] });
  * @extends DirectiveView
  */
 class ImageCarouselView extends DirectiveView {
   constructor(options) {
+    if (!options) {
+      options = {};
+    }
     super(options);
+    this.showCaption = ((options.showCaption) ? options.showCaption : true);
+
     if (options && options.images) {
-      //console.debug(options.images);
       this._location = (options.position) ? options.position : 0;
 
       this.template = /*html*/`
@@ -23,11 +33,12 @@ class ImageCarouselView extends DirectiveView {
           </button>
           <div>
             ${ options.images.map( (image) => {
-                return `<figure><img src="${image.src}" alt="${image.value}" title="${image.caption}" /></figure>`;
+                return `<figure><img src="${image.src}" alt="${image.value}" ${(this.showCaption) ? `title="${image.caption}"` : ""}/></figure>`;
               })
               .join("")
             }
           </div>
+          ${(this.showCaption) ? `<p id="${this.name + "_carousel_caption"}" class="caption"></p>` : ""}
           <button data-${this.name}="right" data-click="right" class="right">
             <i class="material-icons">navigate_next</i>
           </button>
@@ -44,13 +55,14 @@ class ImageCarouselView extends DirectiveView {
 
   /**
    * Is called when the carousel is changed.
+   * @param {String} value passed to the method
    */
   changed(value) {
     return true;
   };
 
   /**
-   * @property value
+   * @property {Number} value
    * The value of the carousel.  Also calls user overridable callback "changed"
    */
 
@@ -65,40 +77,37 @@ class ImageCarouselView extends DirectiveView {
 
   /*
    * The length of the carousel
-   * @property length
+   * @property {Number} length
    */
   get length() {
     return this._images.length;
   };
 
   /**
-   * @property position
+   * @property {Number} position
    * The position of the carousel.
    */
   get position() {
    return this._location;
   };
 
-  /**
-   * @property position
-   * The position of the carousel.
-   */
   set position(p) {
-    this._location = p;
-    this._changePosition();
+    if (p) {
+      this._location = p;
+      this._changePosition();
+    }
   };
 
   _changePosition() {
     if (this._carousel && this._firstimg) {
       const size = this._firstimg.offsetWidth;
       const trans = (this._location * size) / 16;
-      //console.debug(size, trans);
-      //console.debug(this._carousel);
-
       this._carousel.style.transform = `translateX(-${trans}rem)`;
+      //this._carousel.style.width = size;
       this.value = this._images[this._location].value;
-
-      //console.debug("value", this._value);
+      if (this.showCaption && this._caption) {
+        this._caption.innerHTML = this._images[this._location].caption;
+      }
     }
   };
 
@@ -109,10 +118,7 @@ class ImageCarouselView extends DirectiveView {
     if (e) {
       e.preventDefault();
     }
-    //console.debug("left", this._location, this._images.length);
     if (this._location !== 0) {
-      // const carousel = document.querySelector(`${this.el} > div.carousel > div`);
-      // const img = document.querySelector(`${this.el} > div.carousel > div > figure`);
       if (this._carousel && this._firstimg) {
         this._location--;
         this._changePosition();
@@ -128,11 +134,7 @@ class ImageCarouselView extends DirectiveView {
     if (e) {
       e.preventDefault();
     }
-    //console.debug("right", this._location, this._images.length);
-    //console.debug("_carousel", this._carousel, "_firstimg", this._firstimg);
     if (this._location !== this._images.length - 1) {
-      // const carousel = document.querySelector(`${this.el} > div.carousel > div`);
-      // const img = document.querySelector(`${this.el} > div.carousel > div > figure`);
       if (this._carousel && this._firstimg) {
         this._location++;
         this._changePosition();
@@ -143,10 +145,18 @@ class ImageCarouselView extends DirectiveView {
 
   async render() {
     await super.render();
+    this._container = await document.querySelector(`${this.el} > div.carousel`);
     this._carousel = await document.querySelector(`${this.el} > div.carousel > div`);
     this._firstimg = await document.querySelector(`${this.el} > div.carousel > div > figure`);
-    this._carousel.style.width = `${this._images.length}00%`;
-    this.delegateEvents();
+    this._caption = await document.querySelector(`${this.el} > div.carousel > #${this.name}_carousel_caption`);
+
+    const size = this._firstimg.offsetWidth;
+    const trans = size / 16;
+
+    this._container.style.width = `${trans}rem`;
+    this._carousel.style.width = `${trans * this._images.length + 0.5}rem`;
+    this._carousel.style.height = this._firstimg.offsetHeight;
+    await this.delegateEvents();
     this.value = this.value;
     this._changePosition();
     return this;
