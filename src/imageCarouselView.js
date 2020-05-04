@@ -1,5 +1,6 @@
 import { DirectiveView } from "presentation-decorator";
-import css from "./styles/carousel.scss";
+import { Model } from "presentation-models";
+import "./styles/carousel.scss";
 
 /**
  * Image Carousel View - Simple scrolling image carousel<br/>
@@ -21,13 +22,15 @@ class ImageCarouselView extends DirectiveView {
       options = {};
     }
     super(options);
+    if (!this.model) {
+      this.model =  new Model();
+    }
     this.showCaption = ((options.showCaption) ? options.showCaption : true);
 
     if (options && options.images) {
       this._location = (options.position) ? options.position : 0;
 
-      this.template = /*html*/`
-        <div class="carousel">
+      this.template = /*html*/`<div class="carousel">
           <button data-${this.name}="left" data-click="left" class="left">
             <i class="material-icons">navigate_before</i>
           </button>
@@ -42,8 +45,7 @@ class ImageCarouselView extends DirectiveView {
           <button data-${this.name}="right" data-click="right" class="right">
             <i class="material-icons">navigate_next</i>
           </button>
-        </div>
-      `;
+        </div>`;
       this._images = options.images;
       this.model.set(this.name, this._images[this._location].value);
       // this._value = this._images[this._location].value;
@@ -65,7 +67,6 @@ class ImageCarouselView extends DirectiveView {
    * @property {Number} value
    * The value of the carousel.  Also calls user overridable callback "changed"
    */
-
   set value(value) {
     this.changed(value);
     return this.model.set(this.name, value);
@@ -143,25 +144,45 @@ class ImageCarouselView extends DirectiveView {
     return false;
   };
 
+  /**
+   * renders the view
+   * @returns {object} this
+   */
   async render() {
     await super.render();
-    this._container = await document.querySelector(`${this.el} > div.carousel`);
-    this._carousel = await document.querySelector(`${this.el} > div.carousel > div`);
-    this._firstimg = await document.querySelector(`${this.el} > div.carousel > div > figure`);
-    this._caption = await document.querySelector(`${this.el} > div.carousel > #${this.name}_carousel_caption`);
+    if (this.el) {
+      this._container = await document.querySelector(`${this.el} > div.carousel`);
+      this._carousel = await document.querySelector(`${this.el} > div.carousel > div`);
+      this._firstimg = await document.querySelector(`${this.el} > div.carousel > div > figure`);
+      this._caption = await document.querySelector(`${this.el} > div.carousel > #${this.name}_carousel_caption`);
+      let size = 0, trans = 0;
+      if (this._firstimg) {
+        size = this._firstimg.offsetWidth;
+        trans = size / 16;
+      }
 
-    const size = this._firstimg.offsetWidth;
-    const trans = size / 16;
+      if (this._container) {
+        this._container.style.width = `${trans}rem`;
+      }
 
-    this._container.style.width = `${trans}rem`;
-    this._carousel.style.width = `${trans * this._images.length + 0.5}rem`;
-    this._carousel.style.height = this._firstimg.offsetHeight;
-    await this.delegateEvents();
-    this.value = this.value;
-    this._changePosition();
+      if (this._carousel) {
+        this._carousel.style.width = `${trans * this._images.length + 0.5}rem`;
+        this._carousel.style.height = this._firstimg.offsetHeight;
+      }
+
+      await this.delegateEvents();
+      this.value = this.value;
+      await this._changePosition();
+    } else {
+      console.warn(`${this.name}: No mount to render to.`);
+    }
     return this;
   };
 
+  /**
+   * removes the view
+   * @returns {object} this
+   */
   async remove() {
     return await super.remove();
   };

@@ -15,21 +15,30 @@ Augmented.js Next Presentation - Carousel Component
         -   [Parameters](#parameters-1)
     -   [value](#value)
         -   [Parameters](#parameters-2)
+        -   [Properties](#properties)
     -   [position](#position)
-    -   [position](#position-1)
-        -   [Parameters](#parameters-3)
+        -   [Properties](#properties-1)
     -   [left](#left)
-        -   [Parameters](#parameters-4)
+        -   [Parameters](#parameters-3)
     -   [right](#right)
-        -   [Parameters](#parameters-5)
+        -   [Parameters](#parameters-4)
+    -   [render](#render)
+    -   [remove](#remove)
 
 ## ImageCarouselView
 
 **Extends DirectiveView**
 
 Image Carousel View - Simple scrolling image carousel<br/>
-Pass an array of objects as an "images" option.  See example.<br/>
-Note that the first image will determine the size of each "block" the carousel with scroll to.
+Pass an array of objects as an "images" option.<br/>
+Supports the following options:<br/>
+
+<ul>
+<li>showCaption - Shows the caption</li>
+<li>postion - starting position</li>
+<li>images - image array with the following format: <code>[{ src: "", value: "", caption: "" }]</code></li>
+</ul>
+<em>* Note that the first image will determine the size of each "block" size the carousel will scroll with.</em>
 
 ### Parameters
 
@@ -47,7 +56,7 @@ Is called when the carousel is changed.
 
 #### Parameters
 
--   `value`  
+-   `value` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** passed to the method
 
 ### value
 
@@ -55,13 +64,15 @@ Is called when the carousel is changed.
 
 -   `value`  
 
-### position
+#### Properties
+
+-   `value` **[Number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** The value of the carousel.  Also calls user overridable callback "changed"
 
 ### position
 
-#### Parameters
+#### Properties
 
--   `p`  
+-   `position` **[Number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** The position of the carousel.
 
 ### left
 
@@ -78,3 +89,15 @@ moves the carousel to the right
 #### Parameters
 
 -   `e`  
+
+### render
+
+renders the view
+
+Returns **[object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** this
+
+### remove
+
+removes the view
+
+Returns **[object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** this

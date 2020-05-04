@@ -47,6 +47,12 @@ module.exports = {
       commonjs2: "presentation-decorator",
       amd: "presentation-decorator",
       root: "presentation-decorator"
+    },
+    "presentation-models": {
+      commonjs: "presentation-models",
+      commonjs2: "presentation-models",
+      amd: "presentation-models",
+      root: "presentation-models"
     }
   },
   stats: "errors-only",

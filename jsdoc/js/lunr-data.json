@@ -61,22 +61,31 @@
         "ImageCarouselView.html": [
           "array",
           "block",
+          "caption",
           "carousel",
           "class",
           "determin",
           "each",
-          "exampl",
           "first",
+          "follow",
+          "format",
           "imag",
           "imagecarouselview",
           "note",
           "object",
           "option",
           "pass",
+          "posit",
+          "postion",
           "scroll",
-          "see",
+          "show",
+          "showcapt",
           "simpl",
           "size",
+          "src",
+          "start",
+          "support",
+          "valu",
           "view"
         ],
         "ImageCarouselView.html#value": [
@@ -94,7 +103,8 @@
           "carousel",
           "chang",
           "function",
-          "imagecarouselview#chang"
+          "imagecarouselview#chang",
+          "valu"
         ],
         "ImageCarouselView.html#left": [
           "carousel",
@@ -109,9 +119,23 @@
           "imagecarouselview#right",
           "move",
           "right"
+        ],
+        "ImageCarouselView.html#render": [
+          "function",
+          "imagecarouselview#rend",
+          "lt;async&gt",
+          "render",
+          "view"
+        ],
+        "ImageCarouselView.html#remove": [
+          "function",
+          "imagecarouselview#remov",
+          "lt;async&gt",
+          "remov",
+          "view"
         ]
       },
-      "length": 9
+      "length": 11
     },
     "tokenStore": {
       "root": {
@@ -163,7 +187,7 @@
                   "docs": {
                     "ImageCarouselView.html": {
                       "ref": "ImageCarouselView.html",
-                      "tf": 2.1739130434782608
+                      "tf": 2.564102564102564
                     }
                   }
                 }
@@ -209,7 +233,7 @@
                         "docs": {
                           "ImageCarouselView.html": {
                             "ref": "ImageCarouselView.html",
-                            "tf": 2.1739130434782608
+                            "tf": 1.282051282051282
                           }
                         }
                       }
@@ -277,7 +301,7 @@
                 "docs": {
                   "ImageCarouselView.html": {
                     "ref": "ImageCarouselView.html",
-                    "tf": 8.695652173913043
+                    "tf": 7.6923076923076925
                   }
                 },
                 "e": {
@@ -405,6 +429,34 @@
                                                     }
                                                   }
                                                 }
+                                              },
+                                              "e": {
+                                                "docs": {},
+                                                "n": {
+                                                  "docs": {},
+                                                  "d": {
+                                                    "docs": {
+                                                      "ImageCarouselView.html#render": {
+                                                        "ref": "ImageCarouselView.html#render",
+                                                        "tf": 1150
+                                                      }
+                                                    }
+                                                  }
+                                                },
+                                                "m": {
+                                                  "docs": {},
+                                                  "o": {
+                                                    "docs": {},
+                                                    "v": {
+                                                      "docs": {
+                                                        "ImageCarouselView.html#remove": {
+                                                          "ref": "ImageCarouselView.html#remove",
+                                                          "tf": 1150
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
                                               }
                                             }
                                           }
@@ -449,7 +501,7 @@
                 "docs": {
                   "ImageCarouselView.html": {
                     "ref": "ImageCarouselView.html",
-                    "tf": 2.1739130434782608
+                    "tf": 1.282051282051282
                   }
                 }
               }
@@ -489,7 +541,7 @@
                 "docs": {
                   "ImageCarouselView.html": {
                     "ref": "ImageCarouselView.html",
-                    "tf": 2.1739130434782608
+                    "tf": 1.282051282051282
                   }
                 }
               }
@@ -503,9 +555,30 @@
                 "docs": {},
                 "t": {
                   "docs": {
+                    "ImageCarouselView.html": {
+                      "ref": "ImageCarouselView.html",
+                      "tf": 1.282051282051282
+                    },
                     "ImageCarouselView.html#position": {
                       "ref": "ImageCarouselView.html#position",
                       "tf": 750
+                    }
+                  }
+                }
+              },
+              "t": {
+                "docs": {},
+                "i": {
+                  "docs": {},
+                  "o": {
+                    "docs": {},
+                    "n": {
+                      "docs": {
+                        "ImageCarouselView.html": {
+                          "ref": "ImageCarouselView.html",
+                          "tf": 1.282051282051282
+                        }
+                      }
                     }
                   }
                 }
@@ -526,6 +599,37 @@
                     "index.html": {
                       "ref": "index.html",
                       "tf": 110
+                    }
+                  }
+                }
+              }
+            },
+            "n": {
+              "docs": {},
+              "d": {
+                "docs": {},
+                "e": {
+                  "docs": {},
+                  "r": {
+                    "docs": {
+                      "ImageCarouselView.html#render": {
+                        "ref": "ImageCarouselView.html#render",
+                        "tf": 725
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "m": {
+              "docs": {},
+              "o": {
+                "docs": {},
+                "v": {
+                  "docs": {
+                    "ImageCarouselView.html#remove": {
+                      "ref": "ImageCarouselView.html#remove",
+                      "tf": 725
                     }
                   }
                 }
@@ -562,7 +666,7 @@
                   "docs": {
                     "ImageCarouselView.html": {
                       "ref": "ImageCarouselView.html",
-                      "tf": 2.1739130434782608
+                      "tf": 1.282051282051282
                     }
                   },
                   "i": {
@@ -582,7 +686,7 @@
                 "docs": {
                   "ImageCarouselView.html": {
                     "ref": "ImageCarouselView.html",
-                    "tf": 2.1739130434782608
+                    "tf": 2.564102564102564
                   }
                 }
               }
@@ -600,7 +704,7 @@
                     "docs": {
                       "ImageCarouselView.html": {
                         "ref": "ImageCarouselView.html",
-                        "tf": 4.3478260869565215
+                        "tf": 2.564102564102564
                       }
                     }
                   }
@@ -608,13 +712,84 @@
               }
             }
           },
-          "e": {
+          "h": {
             "docs": {},
-            "e": {
+            "o": {
+              "docs": {},
+              "w": {
+                "docs": {
+                  "ImageCarouselView.html": {
+                    "ref": "ImageCarouselView.html",
+                    "tf": 1.282051282051282
+                  }
+                },
+                "c": {
+                  "docs": {},
+                  "a": {
+                    "docs": {},
+                    "p": {
+                      "docs": {},
+                      "t": {
+                        "docs": {
+                          "ImageCarouselView.html": {
+                            "ref": "ImageCarouselView.html",
+                            "tf": 1.282051282051282
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "r": {
+            "docs": {},
+            "c": {
               "docs": {
                 "ImageCarouselView.html": {
                   "ref": "ImageCarouselView.html",
-                  "tf": 2.1739130434782608
+                  "tf": 1.282051282051282
+                }
+              }
+            }
+          },
+          "t": {
+            "docs": {},
+            "a": {
+              "docs": {},
+              "r": {
+                "docs": {},
+                "t": {
+                  "docs": {
+                    "ImageCarouselView.html": {
+                      "ref": "ImageCarouselView.html",
+                      "tf": 1.282051282051282
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "u": {
+            "docs": {},
+            "p": {
+              "docs": {},
+              "p": {
+                "docs": {},
+                "o": {
+                  "docs": {},
+                  "r": {
+                    "docs": {},
+                    "t": {
+                      "docs": {
+                        "ImageCarouselView.html": {
+                          "ref": "ImageCarouselView.html",
+                          "tf": 1.282051282051282
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -668,6 +843,26 @@
           },
           "a": {
             "docs": {},
+            "p": {
+              "docs": {},
+              "t": {
+                "docs": {},
+                "i": {
+                  "docs": {},
+                  "o": {
+                    "docs": {},
+                    "n": {
+                      "docs": {
+                        "ImageCarouselView.html": {
+                          "ref": "ImageCarouselView.html",
+                          "tf": 2.564102564102564
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
             "r": {
               "docs": {},
               "o": {
@@ -682,7 +877,7 @@
                         "docs": {
                           "ImageCarouselView.html": {
                             "ref": "ImageCarouselView.html",
-                            "tf": 6.521739130434782
+                            "tf": 3.8461538461538463
                           },
                           "ImageCarouselView.html#changed": {
                             "ref": "ImageCarouselView.html#changed",
@@ -725,7 +920,7 @@
                   "docs": {
                     "ImageCarouselView.html#changed": {
                       "ref": "ImageCarouselView.html#changed",
-                      "tf": 766.6666666666666
+                      "tf": 716.6666666666666
                     }
                   }
                 }
@@ -785,6 +980,45 @@
                 }
               }
             }
+          },
+          "t": {
+            "docs": {},
+            ";": {
+              "docs": {},
+              "a": {
+                "docs": {},
+                "s": {
+                  "docs": {},
+                  "y": {
+                    "docs": {},
+                    "n": {
+                      "docs": {},
+                      "c": {
+                        "docs": {},
+                        "&": {
+                          "docs": {},
+                          "g": {
+                            "docs": {},
+                            "t": {
+                              "docs": {
+                                "ImageCarouselView.html#render": {
+                                  "ref": "ImageCarouselView.html#render",
+                                  "tf": 50
+                                },
+                                "ImageCarouselView.html#remove": {
+                                  "ref": "ImageCarouselView.html#remove",
+                                  "tf": 50
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "b": {
@@ -799,7 +1033,7 @@
                   "docs": {
                     "ImageCarouselView.html": {
                       "ref": "ImageCarouselView.html",
-                      "tf": 2.1739130434782608
+                      "tf": 1.282051282051282
                     }
                   }
                 }
@@ -817,27 +1051,7 @@
                 "docs": {
                   "ImageCarouselView.html": {
                     "ref": "ImageCarouselView.html",
-                    "tf": 2.1739130434782608
-                  }
-                }
-              }
-            }
-          },
-          "x": {
-            "docs": {},
-            "a": {
-              "docs": {},
-              "m": {
-                "docs": {},
-                "p": {
-                  "docs": {},
-                  "l": {
-                    "docs": {
-                      "ImageCarouselView.html": {
-                        "ref": "ImageCarouselView.html",
-                        "tf": 2.1739130434782608
-                      }
-                    }
+                    "tf": 1.282051282051282
                   }
                 }
               }
@@ -856,7 +1070,44 @@
                   "docs": {
                     "ImageCarouselView.html": {
                       "ref": "ImageCarouselView.html",
-                      "tf": 2.1739130434782608
+                      "tf": 1.282051282051282
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "o": {
+            "docs": {},
+            "l": {
+              "docs": {},
+              "l": {
+                "docs": {},
+                "o": {
+                  "docs": {},
+                  "w": {
+                    "docs": {
+                      "ImageCarouselView.html": {
+                        "ref": "ImageCarouselView.html",
+                        "tf": 2.564102564102564
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "r": {
+              "docs": {},
+              "m": {
+                "docs": {},
+                "a": {
+                  "docs": {},
+                  "t": {
+                    "docs": {
+                      "ImageCarouselView.html": {
+                        "ref": "ImageCarouselView.html",
+                        "tf": 1.282051282051282
+                      }
                     }
                   }
                 }
@@ -888,6 +1139,14 @@
                           "ImageCarouselView.html#right": {
                             "ref": "ImageCarouselView.html#right",
                             "tf": 110
+                          },
+                          "ImageCarouselView.html#render": {
+                            "ref": "ImageCarouselView.html#render",
+                            "tf": 110
+                          },
+                          "ImageCarouselView.html#remove": {
+                            "ref": "ImageCarouselView.html#remove",
+                            "tf": 110
                           }
                         }
                       }
@@ -912,7 +1171,7 @@
                     "docs": {
                       "ImageCarouselView.html": {
                         "ref": "ImageCarouselView.html",
-                        "tf": 2.1739130434782608
+                        "tf": 1.282051282051282
                       }
                     }
                   }
@@ -932,7 +1191,7 @@
                     "docs": {
                       "ImageCarouselView.html": {
                         "ref": "ImageCarouselView.html",
-                        "tf": 2.1739130434782608
+                        "tf": 2.564102564102564
                       }
                     }
                   }
@@ -943,6 +1202,28 @@
         },
         "v": {
           "docs": {},
+          "a": {
+            "docs": {},
+            "l": {
+              "docs": {},
+              "u": {
+                "docs": {
+                  "ImageCarouselView.html": {
+                    "ref": "ImageCarouselView.html",
+                    "tf": 1.282051282051282
+                  },
+                  "ImageCarouselView.html#value": {
+                    "ref": "ImageCarouselView.html#value",
+                    "tf": 750
+                  },
+                  "ImageCarouselView.html#changed": {
+                    "ref": "ImageCarouselView.html#changed",
+                    "tf": 50
+                  }
+                }
+              }
+            }
+          },
           "i": {
             "docs": {},
             "e": {
@@ -951,21 +1232,15 @@
                 "docs": {
                   "ImageCarouselView.html": {
                     "ref": "ImageCarouselView.html",
-                    "tf": 2.1739130434782608
-                  }
-                }
-              }
-            }
-          },
-          "a": {
-            "docs": {},
-            "l": {
-              "docs": {},
-              "u": {
-                "docs": {
-                  "ImageCarouselView.html#value": {
-                    "ref": "ImageCarouselView.html#value",
-                    "tf": 750
+                    "tf": 1.282051282051282
+                  },
+                  "ImageCarouselView.html#render": {
+                    "ref": "ImageCarouselView.html#render",
+                    "tf": 25
+                  },
+                  "ImageCarouselView.html#remove": {
+                    "ref": "ImageCarouselView.html#remove",
+                    "tf": 25
                   }
                 }
               }
@@ -1018,13 +1293,14 @@
           }
         }
       },
-      "length": 56
+      "length": 73
     },
     "corpusTokens": [
       "array",
       "augmented.j",
       "block",
       "call",
+      "caption",
       "carousel",
       "chang",
       "class",
@@ -1032,8 +1308,9 @@
       "develop",
       "document",
       "each",
-      "exampl",
       "first",
+      "follow",
+      "format",
       "function",
       "global",
       "imag",
@@ -1041,12 +1318,15 @@
       "imagecarouselview#chang",
       "imagecarouselview#left",
       "imagecarouselview#posit",
+      "imagecarouselview#remov",
+      "imagecarouselview#rend",
       "imagecarouselview#right",
       "imagecarouselview#valu",
       "index",
       "left",
       "list",
       "list:class",
+      "lt;async&gt",
       "member",
       "move",
       "next",
@@ -1055,14 +1335,21 @@
       "option",
       "pass",
       "posit",
+      "postion",
       "present",
       "readm",
+      "remov",
+      "render",
       "right",
       "scroll",
-      "see",
+      "show",
+      "showcapt",
       "simpl",
       "simpli",
       "size",
+      "src",
+      "start",
+      "support",
       "valu",
       "view"
     ],
@@ -1114,7 +1401,7 @@
       "name": "ImageCarouselView",
       "tags": "ImageCarouselView",
       "summary": "",
-      "description": "Image Carousel View - Simple scrolling image carousel Pass an array of objects as an \"images\" option. See example. Note that the first image will determine the size of each \"block\" the carousel with scroll to.",
+      "description": "Image Carousel View - Simple scrolling image carousel Pass an array of objects as an \"images\" option. Supports the following options: showCaption - Shows the caption postion - starting position images - image array with the following format: [{ src: \"\", value: \"\", caption: \"\" }] * Note that the first image will determine the size of each \"block\" size the carousel will scroll with.",
       "body": ""
     },
     "ImageCarouselView.html#value": {
@@ -1140,7 +1427,7 @@
     "ImageCarouselView.html#changed": {
       "id": "ImageCarouselView.html#changed",
       "kind": "function",
-      "title": "changed()",
+      "title": "changed( value )",
       "longname": "ImageCarouselView#changed",
       "name": "changed",
       "tags": "ImageCarouselView#changed changed",
@@ -1166,6 +1453,26 @@
       "tags": "ImageCarouselView#right right",
       "summary": "",
       "description": "moves the carousel to the right"
+    },
+    "ImageCarouselView.html#render": {
+      "id": "ImageCarouselView.html#render",
+      "kind": "function",
+      "title": "&lt;async&gt; render()",
+      "longname": "ImageCarouselView#render",
+      "name": "render",
+      "tags": "ImageCarouselView#render render",
+      "summary": "",
+      "description": "renders the view"
+    },
+    "ImageCarouselView.html#remove": {
+      "id": "ImageCarouselView.html#remove",
+      "kind": "function",
+      "title": "&lt;async&gt; remove()",
+      "longname": "ImageCarouselView#remove",
+      "name": "remove",
+      "tags": "ImageCarouselView#remove remove",
+      "summary": "",
+      "description": "removes the view"
     }
   }
 }
