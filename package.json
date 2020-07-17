@@ -1,6 +1,6 @@
 {
   "name": "presentation-carousel",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "description": "The Augmented.js Next - Presentation Carousel Module.",
   "main": "dist/presentation-carousel.js",
   "scripts": {
@@ -25,9 +25,9 @@
   "author": "Bob Warren <jedi.master@augmentedjs.com> (http://www.augmentedjs.com)",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@babel/core": "^7.10.4",
+    "@babel/core": "^7.10.5",
     "@babel/preset-env": "^7.10.4",
-    "@babel/register": "^7.10.4",
+    "@babel/register": "^7.10.5",
     "babel-loader": "^8.1.0",
     "babel-plugin-remove-template-literals-whitespace": "^1.0.3",
     "buffer": "^5.6.0",
@@ -47,7 +47,7 @@
     "webpack-cli": "^3.3.12"
   },
   "dependencies": {
-    "presentation-decorator": "^3.1.5",
+    "presentation-decorator": "^3.2.0",
     "presentation-models": "^3.1.5"
   },
   "bugs": {
