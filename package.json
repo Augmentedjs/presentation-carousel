@@ -1,6 +1,6 @@
 {
   "name": "presentation-carousel",
-  "version": "3.0.4",
+  "version": "3.0.5",
   "description": "The Augmented.js Next - Presentation Carousel Module.",
   "main": "dist/presentation-carousel.js",
   "scripts": {
@@ -47,8 +47,8 @@
     "webpack-cli": "^3.3.12"
   },
   "dependencies": {
-    "presentation-decorator": "^3.2.0",
-    "presentation-models": "^3.1.5"
+    "presentation-decorator": "^3.2.1",
+    "presentation-models": "^3.1.6"
   },
   "bugs": {
     "url": "https://github.com/Augmentedjs/presentation-carousel/issues"
