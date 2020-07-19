@@ -47,7 +47,7 @@
     "webpack-cli": "^3.3.12"
   },
   "dependencies": {
-    "presentation-decorator": "^3.2.2",
+    "presentation-decorator": "^3.2.3",
     "presentation-models": "^3.1.6"
   },
   "bugs": {
